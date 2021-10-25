@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  php-81-enum-container:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    volumes:
+      - .:/app
+#    working_dir: /app
+#    command:
+#      - composer install; php vendor/bin/phpunit --colors=always --testdox Test

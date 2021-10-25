@@ -1,0 +1,35 @@
+{
+    "name": "makhnanov/php-enum-81",
+    "description": "Useful things for new PHP 8.1 Enum feature.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Makhnanov\\PhpEnum81\\": "Src/"
+        },
+        "files": ["Src/Function.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Makhnanov\\PhpEnum81\\Test\\": "Test/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Romaxa",
+            "email": "bakirov.important@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.1",
+        "": ""
+    },
+    "require-dev": {
+        "symfony/var-dumper": "6.0.x-dev",
+        "phpunit/phpunit": "^9"
+    },
+    "scripts": {
+        "test": "php vendor/bin/phpunit --colors=always --testdox Test"
+    }
+}
