@@ -33,7 +33,7 @@ trait EnumUpgrade
     #[Pure]
     public function toArray(bool $reverse = false): ?array
     {
-        if (!self::isBacked()) {
+        if (!self::isBackedEnum()) {
             return null;
         }
         /** @noinspection PhpUndefinedFieldInspection */
@@ -44,7 +44,7 @@ trait EnumUpgrade
 
     public static function casesAsKeyValue(bool $reverse = false): ?array
     {
-        if (!self::isBacked()) {
+        if (!self::isBackedEnum()) {
             return null;
         }
         return array_map(function (BackedEnum $enum) use ($reverse) {
@@ -52,8 +52,41 @@ trait EnumUpgrade
         }, self::cases());
     }
 
-    public static function isBacked(): bool
+    public static function isBackedEnum(): bool
     {
         return is_a(__CLASS__, BackedEnum::class, true);
+    }
+
+    public static function isUnitEnum(): bool
+    {
+        return is_a(__CLASS__, UnitEnum::class, true);
+    }
+
+    public static function names(): ?array
+    {
+        if (!self::isUnitEnum()) {
+            return null;
+        }
+        return array_map(function (UnitEnum $enum) {
+            return $enum->name;
+        }, self::cases());
+    }
+
+    public static function values(): ?array
+    {
+        if (!self::isUnitEnum()) {
+            return null;
+        }
+        return array_map(function (UnitEnum $enum) {
+            return $enum->value ?? null;
+        }, self::cases());
+    }
+
+    public static function casesCount(): int
+    {
+        if (!self::isUnitEnum()) {
+            return 0;
+        }
+        return count(self::cases());
     }
 }

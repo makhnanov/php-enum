@@ -13,22 +13,33 @@ class EnumTest extends TestCase
 {
     public function testFirst()
     {
-        $name = 'SIMPLE_CASE';
+        $name = 'SIMPLE_FIRST_CASE';
         $unrealName = 'unrealName';
-        $first = SimpleEnumeration::SIMPLE_CASE;
+        $first = SimpleEnumeration::SIMPLE_FIRST_CASE;
         $this->assertNull($first->toArray());
         $this->assertNull($first::casesAsKeyValue());
-        $this->assertFalse($first->isBacked());
+        $this->assertFalse($first->isBackedEnum());
         $this->assertSame($name, $first->name);
         $this->assertSame($name, name($first));
         $this->assertNull(value($first));
         $this->assertSame(
-            SimpleEnumeration::SIMPLE_CASE,
+            SimpleEnumeration::SIMPLE_FIRST_CASE,
             get_by_name(SimpleEnumeration::class, $name)
         );
         $this->assertNull(get_by_name(SimpleEnumeration::class, $unrealName));
-        $this->assertSame(SimpleEnumeration::SIMPLE_CASE, SimpleEnumeration::tryByName($name));
+        $this->assertSame(SimpleEnumeration::SIMPLE_FIRST_CASE, SimpleEnumeration::tryByName($name));
         $this->assertTrue(SimpleEnumeration::exist($name));
+
+        $this->assertTrue(SimpleEnumeration::isUnitEnum());
+        $this->assertSame([
+            SimpleEnumeration::SIMPLE_FIRST_CASE->name,
+            SimpleEnumeration::SIMPLE_SECOND_CASE->name
+        ], SimpleEnumeration::names());
+        $this->assertSame([
+            SimpleEnumeration::SIMPLE_FIRST_CASE->value ?? null,
+            SimpleEnumeration::SIMPLE_SECOND_CASE->value ?? null,
+        ], SimpleEnumeration::values());
+        $this->assertSame(2, SimpleEnumeration::casesCount());
     }
 
     public function testError()

@@ -8,5 +8,6 @@ enum SimpleEnumeration
 {
     use EnumUpgrade;
 
-    case SIMPLE_CASE;
+    case SIMPLE_FIRST_CASE;
+    case SIMPLE_SECOND_CASE;
 }
