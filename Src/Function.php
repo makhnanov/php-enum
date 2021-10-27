@@ -22,7 +22,7 @@ function is_defined(string|Stringable $enumClass, string|Stringable $enumName): 
 }
 
 #[Pure]
-function get_by_name(string|Stringable $enumClass, string|Stringable $enumName): ?UnitEnum
+function get_by_name(string|Stringable $enumClass, string|Stringable $enumName): mixed
 {
     return is_defined($enumClass, $enumName)
         ? constant($enumClass . '::' . $enumName)

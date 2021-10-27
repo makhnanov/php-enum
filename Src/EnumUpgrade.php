@@ -11,7 +11,7 @@ use UnitEnum;
 trait EnumUpgrade
 {
     #[Pure]
-    public static function tryByName(string|Stringable $name): ?UnitEnum
+    public static function tryByName(string|Stringable $name): null|int|string|self
     {
         return get_by_name(__CLASS__, $name);
     }
@@ -19,7 +19,7 @@ trait EnumUpgrade
     /**
      * @throws Error
      */
-    public static function byName(string|Stringable $name): UnitEnum
+    public static function byName(string|Stringable $name): mixed
     {
         return constant(__CLASS__ . '::' . $name);
     }
