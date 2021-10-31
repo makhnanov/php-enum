@@ -6,12 +6,13 @@ use Error;
 use PHPUnit\Framework\TestCase;
 
 use function Makhnanov\PhpEnum81\get_by_name;
+use function Makhnanov\PhpEnum81\get_enum;
 use function Makhnanov\PhpEnum81\name;
 use function Makhnanov\PhpEnum81\value;
 
 class EnumTest extends TestCase
 {
-    public function testFirst()
+    public function testNotBacked()
     {
         $name = 'SIMPLE_FIRST_CASE';
         $unrealName = 'unrealName';
@@ -25,6 +26,10 @@ class EnumTest extends TestCase
         $this->assertSame(
             SimpleEnumeration::SIMPLE_FIRST_CASE,
             get_by_name(SimpleEnumeration::class, $name)
+        );
+        $this->assertSame(
+            SimpleEnumeration::SIMPLE_FIRST_CASE,
+            get_enum(SimpleEnumeration::class, $name)
         );
         $this->assertNull(get_by_name(SimpleEnumeration::class, $unrealName));
         $this->assertSame(SimpleEnumeration::SIMPLE_FIRST_CASE, SimpleEnumeration::tryByName($name));
@@ -57,4 +62,12 @@ class EnumTest extends TestCase
 //    public function testBacked()
 //    {
 //    }
+
+// ToDo:
+//    public function testCompareTraitAndInterface()
+//    {
+//    }
+
+// ToDo: FixDocker add tag and readme
+
 }

@@ -21,10 +21,17 @@ function is_defined(string|Stringable $enumClass, string|Stringable $enumName): 
     return defined($enumClass . '::' . $enumName);
 }
 
-#[Pure]
-function get_by_name(string|Stringable $enumClass, string|Stringable $enumName): mixed
+#[Pure] function get_by_name(string|Stringable $enumClass, string|Stringable $enumName): mixed
 {
     return is_defined($enumClass, $enumName)
         ? constant($enumClass . '::' . $enumName)
         : null;
+}
+
+/**
+ * Alias for get_by_name
+ */
+#[Pure] function get_enum(string|Stringable $enumClass, string|Stringable $enumName): mixed
+{
+    return get_by_name($enumClass, $enumName);
 }
