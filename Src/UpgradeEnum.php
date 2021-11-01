@@ -8,7 +8,7 @@ use JetBrains\PhpStorm\Pure;
 use Stringable;
 use UnitEnum;
 
-trait EnumUpgrade
+trait UpgradeEnum
 {
     #[Pure]
     public static function tryByName(string|Stringable $name): null|int|string|self

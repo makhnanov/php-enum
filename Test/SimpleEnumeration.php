@@ -2,11 +2,11 @@
 
 namespace Makhnanov\PhpEnum81\Test;
 
-use Makhnanov\PhpEnum81\EnumUpgrade;
+use Makhnanov\PhpEnum81\UpgradeEnum;
 
 enum SimpleEnumeration
 {
-    use EnumUpgrade;
+    use UpgradeEnum;
 
     case SIMPLE_FIRST_CASE;
     case SIMPLE_SECOND_CASE;
