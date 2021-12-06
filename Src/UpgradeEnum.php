@@ -10,10 +10,15 @@ use UnitEnum;
 
 trait UpgradeEnum
 {
-    #[Pure]
-    public static function tryByName(string|Stringable $name): null|int|string|static
+    public function isEqual(self $expected): bool
     {
-        return get_by_name(__CLASS__, $name);
+        return $this === $expected;
+    }
+
+    #[Pure]
+    public static function tryByName(null|string|Stringable $name, self $default = null): null|self
+    {
+        return get_by_name(__CLASS__, (string)$name) ?? $default;
     }
 
     /**
@@ -31,15 +36,11 @@ trait UpgradeEnum
     }
 
     #[Pure]
-    public function toArray(bool $reverse = false): ?array
+    public function toArray(bool $reverse = false): array
     {
-        if (!static::isBackedEnum()) {
-            return null;
-        }
-        /** @noinspection PhpUndefinedFieldInspection */
         return $reverse
-            ? [$this->name => $this->value]
-            : [$this->value => $this->name];
+            ? [$this->name => $this->value ?? null]
+            : [$this->value ?? 0 => $this->name];
     }
 
     public static function casesAsKeyValue(bool $reverse = false): ?array
@@ -62,21 +63,15 @@ trait UpgradeEnum
         return is_a(__CLASS__, UnitEnum::class, true);
     }
 
-    public static function names(): ?array
+    public static function names(): array
     {
-        if (!static::isUnitEnum()) {
-            return null;
-        }
         return array_map(function (UnitEnum $enum) {
             return $enum->name;
         }, static::cases());
     }
 
-    public static function values(): ?array
+    public static function values(): array
     {
-        if (!static::isUnitEnum()) {
-            return null;
-        }
         return array_map(function (UnitEnum $enum) {
             return $enum->value ?? null;
         }, static::cases());
@@ -84,19 +79,6 @@ trait UpgradeEnum
 
     public static function casesCount(): int
     {
-        if (!static::isUnitEnum()) {
-            return 0;
-        }
         return count(static::cases());
-    }
-
-    public static function casesNames(): array
-    {
-        return static::names();
-    }
-
-    public static function casesValues(): array
-    {
-        return static::values();
     }
 }

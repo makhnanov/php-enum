@@ -6,7 +6,9 @@ use Stringable;
 
 interface UpgradedEnumInterface
 {
-    public static function tryByName(string|Stringable $name): null|int|string|static;
+    public function isEqual(self $expected): bool;
+
+    public static function tryByName(null|string|Stringable $name, self $default): null|self;
 
     public static function byName(string|Stringable $name): mixed;
 
@@ -20,13 +22,9 @@ interface UpgradedEnumInterface
 
     public static function isUnitEnum(): bool;
 
-    public static function names(): ?array;
+    public static function names(): array;
 
-    public static function values(): ?array;
+    public static function values(): array;
 
     public static function casesCount(): int;
-
-    public static function casesNames(): array;
-
-    public static function casesValues(): array;
 }
