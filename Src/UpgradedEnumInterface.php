@@ -6,10 +6,6 @@ use Stringable;
 
 interface UpgradedEnumInterface
 {
-    public function isEqual(self $expected): bool;
-
-    public static function tryByName(null|string|Stringable $name, self $default): null|self;
-
     public static function byName(string|Stringable $name): mixed;
 
     public static function exist(string|Stringable $name): bool;
