@@ -1,5 +1,5 @@
 {
-    "name": "makhnanov/php-enum-81",
+    "name": "makhnanov/php-enum",
     "description": "Useful things for new PHP 8.1 Enum feature.",
     "type": "library",
     "license": "MIT",
