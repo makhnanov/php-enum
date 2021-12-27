@@ -8,11 +8,17 @@ use JetBrains\PhpStorm\Pure;
 use Stringable;
 use UnitEnum;
 
-trait UpgradeEnum
+trait EnumExtension
 {
     public function isEqual(self $expected): bool
     {
         return $this === $expected;
+    }
+
+    #[Pure]
+    public function assert(self $expected): bool
+    {
+        return $this->isEqual($expected);
     }
 
     #[Pure]
@@ -39,8 +45,8 @@ trait UpgradeEnum
     public function toArray(bool $reverse = false): array
     {
         return $reverse
-            ? [$this->name => $this->value ?? null]
-            : [$this->value ?? 0 => $this->name];
+            ? [$this->value ?? 0 => $this->name]
+            : [$this->name => $this->value ?? null];
     }
 
     public static function casesAsKeyValue(bool $reverse = false): ?array
