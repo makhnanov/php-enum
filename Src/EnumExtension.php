@@ -87,4 +87,14 @@ trait EnumExtension
     {
         return count(static::cases());
     }
+
+    /**
+     * @param array<int, UnitEnum> $expected
+     */
+    public function isInArray(array $expected): ?self
+    {
+        return in_array($this, $expected, true)
+            ? $this
+            : null;
+    }
 }
