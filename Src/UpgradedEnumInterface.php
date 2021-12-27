@@ -1,6 +1,6 @@
 <?php
 
-namespace Makhnanov\PhpEnum81;
+namespace Makhnanov\PhpEnum;
 
 use Stringable;
 

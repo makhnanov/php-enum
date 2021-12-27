@@ -1,14 +1,14 @@
 <?php
 
-namespace Makhnanov\PhpEnum81\Test;
+namespace Makhnanov\PhpEnum\Test;
 
 use Error;
 use PHPUnit\Framework\TestCase;
 
-use function Makhnanov\PhpEnum81\get_by_name;
-use function Makhnanov\PhpEnum81\get_enum;
-use function Makhnanov\PhpEnum81\name;
-use function Makhnanov\PhpEnum81\value;
+use function Makhnanov\PhpEnum\get_by_name;
+use function Makhnanov\PhpEnum\get_enum;
+use function Makhnanov\PhpEnum\name;
+use function Makhnanov\PhpEnum\value;
 
 class EnumTest extends TestCase
 {

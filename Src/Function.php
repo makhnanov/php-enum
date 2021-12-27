@@ -1,6 +1,6 @@
 <?php
 
-namespace Makhnanov\PhpEnum81;
+namespace Makhnanov\PhpEnum;
 
 use JetBrains\PhpStorm\Pure;
 use Stringable;
@@ -21,7 +21,8 @@ function is_defined(string|Stringable $enumClass, string|Stringable $enumName): 
     return defined($enumClass . '::' . $enumName);
 }
 
-#[Pure] function get_by_name(string|Stringable $enumClass, string|Stringable $enumName): mixed
+#[Pure]
+function get_by_name(string|Stringable $enumClass, string|Stringable $enumName): mixed
 {
     return is_defined($enumClass, $enumName)
         ? constant($enumClass . '::' . $enumName)

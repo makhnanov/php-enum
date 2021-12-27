@@ -5,13 +5,13 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Makhnanov\\PhpEnum81\\": "Src/"
+            "Makhnanov\\PhpEnum\\": "Src/"
         },
         "files": ["Src/Function.php"]
     },
     "autoload-dev": {
         "psr-4": {
-            "Makhnanov\\PhpEnum81\\Test\\": "Test/"
+            "Makhnanov\\PhpEnum\\Test\\": "Test/"
         }
     },
     "authors": [

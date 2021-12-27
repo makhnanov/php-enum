@@ -1,8 +1,8 @@
 <?php
 
-namespace Makhnanov\PhpEnum81\Test;
+namespace Makhnanov\PhpEnum\Test;
 
-use Makhnanov\PhpEnum81\UpgradeEnum;
+use Makhnanov\PhpEnum\UpgradeEnum;
 
 enum SimpleEnumeration
 {
