@@ -41,8 +41,8 @@ WIP
 <details>
 <summary>Kitty</summary>
 
-[![Present][1]][1]
+[![Present][777]][777]
 
-[1]: https://i.stack.imgur.com/AKtls.jpg
+[777]: https://i.stack.imgur.com/AKtls.jpg
 
 </details>
