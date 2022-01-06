@@ -18,16 +18,16 @@ composer require makhnanov/php-enum
 <details>
 <summary>Show</summary>
 
-[basic.php](https://google.com)
+[basic.php](https://github.com/makhnanov/php-enum/blob/main/Example/basic.php)
 
 [![Basic][1]][1]
 
-[1]: https://i.stack.imgur.com/AKtls.jpg
+[1]: https://github.com/makhnanov/php-enum/blob/main/Example/basic1.png?raw=true
 
 
 [![Basic2][2]][2]
 
-[2]: https://i.stack.imgur.com/AKtls.jpg
+[2]: https://github.com/makhnanov/php-enum/blob/main/Example/basic2.png?raw=true
 
 </details>
 
