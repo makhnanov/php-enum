@@ -1,4 +1,4 @@
-FROM php:8.1.0RC4-cli-alpine3.14
+FROM php:latest
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+RUN apt update && apt -y install zip
 WORKDIR /app
-CMD ["./entrypoint.sh"]
