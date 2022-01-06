@@ -1,4 +1,4 @@
-![Logo](https://github.com/makhnanov/php-enum/blob/main/Example/php-enum-logo.png?raw=true)
+![Logo](https://github.com/makhnanov/php-enum/blob/main/php-enum-logo.png?raw=true)
 # Introduction
 In [PHP 8.1](https://www.php.net/releases/8.1/en.php) we got [Enumeration](https://www.php.net/manual/en/language.enumerations.php). Thank you, Larry Garfield, Ilija Tovilo, for your [RFC](https://wiki.php.net/rfc/enumerations)!
 
