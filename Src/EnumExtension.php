@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Makhnanov\PhpEnum;
 
 use BackedEnum;
@@ -54,9 +56,11 @@ trait EnumExtension
         if (!static::isBackedEnum()) {
             return null;
         }
-        return array_map(function (BackedEnum $enum) use ($reverse) {
-            return $enum->toArray($reverse);
-        }, static::cases());
+        $return = [];
+        foreach (static::cases() as $case) {
+            $return[$reverse ? $case->value : $case->name] = $reverse ? $case->name : $case->value;
+        }
+        return $return;
     }
 
     public static function isBackedEnum(): bool

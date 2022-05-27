@@ -1,6 +1,8 @@
 DIR = $(shell pwd)
 NAME = "php-enum"
 CMD = docker run -it --mount type=bind,source=$(DIR),target=/app,bind-propagation=shared -w /app $(NAME)
+start:
+	make run-build run-composer-install run-composer-update run-shell
 run-build:
 	docker build -t $(NAME) .
 run-php-v:
