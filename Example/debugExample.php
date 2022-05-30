@@ -10,8 +10,28 @@ enum TestEnum: string
 {
     use EnumExtension;
 
-    case a = 'b';
-    case c = 'd';
+    case a = 'a';
+    case b = 'b';
+    case c = 'c';
+
+    public function toInt(): int
+    {
+        return match ($this) {
+            self::a => 1,
+            self::b => 22,
+            self::c => 3,
+        };
+    }
+
+    public static function allToInt(): array
+    {
+        return self::mapInternalCallback(self::values(), 'toInt');
+    }
 }
 
+dump(TestEnum::allToInt());
 dd(TestEnum::casesAsKeyValue());
+
+/**
+php Example/debug.php
+ */

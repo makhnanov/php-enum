@@ -101,4 +101,12 @@ trait EnumExtension
             ? $this
             : null;
     }
+
+    public static function mapInternalCallback(array $keys, string $callback): array
+    {
+        return array_combine($keys, array_map(
+            static fn (self $enum) => call_user_func([$enum, $callback]),
+            self::cases()
+        ));
+    }
 }
